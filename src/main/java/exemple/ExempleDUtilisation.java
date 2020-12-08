@@ -1,16 +1,16 @@
 package exemple;
 
-import bandeau.Bandeau;
 import java.awt.Color;
 import java.awt.Font;
+import bandeau.Bandeau;
 
 public class ExempleDUtilisation {
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 	    new ExempleDUtilisation().exemple();
     }
     
-    public void exemple() {
+        public void exemple() {
 	Bandeau monBandeau = new Bandeau();
         Font font = monBandeau.getFont();
         Color back = monBandeau.getBackground();
@@ -57,5 +57,16 @@ public class ExempleDUtilisation {
 	monBandeau.setMessage("Terminé");
 	monBandeau.sleep(3000);
 	monBandeau.close();
-   }
+   }*/
+    public static void main(String[] args) {
+      Bandeau bandeau = new Bandeau();
+      ScenarioAnimation scenario = new ScenarioAnimation(bandeau);
+      scenario.ajouteEffet(new ForeClignotant(bandeau, 2, "On clignote"));
+      scenario.ajouteEffet(new BackClignotant(bandeau, 2, "On clignotte"));
+      scenario.ajouteEffet(new Rotation(bandeau, 3, "On tourne"));
+      
+      scenario.lancementDuScenario();
+    }
+   
 }
+
